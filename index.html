@@ -5,18 +5,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vipin-Portfolio-Website</title>
+    <title>Vipin-Portfolio</title>
 
-    <!-- swiper css -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
 
-    <!-- box icons -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
-    <!-- custom css -->
     <link rel="stylesheet" href="css/style.css">
 
-    <!-- Email Send  -->
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script>
         (function() {
@@ -29,16 +25,16 @@
 
 <body>
 
-    <!-- header design -->
     <header class="header">
         <a href="#" class="logo">Portfolio</a>
 
         <nav class="navbar">
             <a href="#home" class="active">Home</a>
             <a href="#about">About</a>
-            <!-- <a href="#services">Services</a> -->
-            <a href="#portfolio">Portfolio</a>
+            <a href="#skills">Skills</a>
+            <a href="#portfolio">Projects</a>
             <a href="#contact">Contact</a>
+            
         </nav>
 
         <div class="bx bx-moon" id="darkMode-icon"></div>
@@ -46,12 +42,11 @@
         <div class="bx bx-menu" id="menu-icon"></div>
     </header>
 
-    <!-- home section design -->
     <section class="home" id="home">
         <div class="home-content">
             <h3>Hello, I am</h3>
             <h1>Vipin Shivhare</h1>
-           <p>
+            <p>
                 I'm a Java backend developer and full-stack enthusiast who loves
                 building scalable, efficient applications. <br>
             </p>
@@ -74,34 +69,28 @@
                 </a>
             </div>
         
-                <!-- CV download functionality -->
-            <a href="https://drive.google.com/uc?export=download&id=13vJBC99ui0o8xI3hObNswlwH0NgUhuOG" class="btn" download>Download CV</a>
-                <!-- here 13vJBC99ui0o8xI3hObNswlwH0NgUhuOG is file id replace this only in future -->
-                <!-- Isko lene ke liye drive me upload then share->getlink-> copylink and choose access from link then find FILE ID from copied link -->
-        </div>
+                <a href="https://drive.google.com/uc?export=download&id=13vJBC99ui0o8xI3hObNswlwH0NgUhuOG" class="btn" download>Download CV</a>
+                </div>
+                <!-- replace this 13vJBC99ui0o8xI3hObNswlwH0NgUhuOG  -->
 
 
         <div class="profession-container">
             <div class="profession-box">
-                <!-- Java Developer -->
                 <div class="profession" style="--i:0;">
                     <i class='bx bxl-java'></i>
                     <h3>Java Developer</h3>
                 </div>
 
-                <!-- Backend Developer -->
                 <div class="profession" style="--i:1;">
                     <i class='bx bx-server'></i>
                     <h3>Backend Developer</h3>
                 </div>
 
-                <!-- Java Full-Stack -->
                 <div class="profession" style="--i:2;">
                     <i class='bx bx-layer'></i>
                     <h3>Java Full-Stack</h3>
                 </div>
 
-                <!-- Spring Framework -->
                 <div class="profession" style="--i:3;">
                     <i class='bx bx-leaf'></i>
                     <h3>Spring Framework</h3>
@@ -119,37 +108,6 @@
             <img src="images/home.png" alt="">
         </div>
     </section>
-
-    <!-- about section design -->
-    <!-- <section class="about" id="about">
-        <div class="about-img">
-            <img src="images/about.png" alt="">
-        </div>
-
-        <div class="about-content">
-            <h2 class="heading">About <span>Me</span></h2>
-            <h3>
-                Hi there, welcome to my website! I'm Vipin,
-                a passionate web developer who enjoys learning new technologies
-                and solving problems with code!
-            </h3>
-            <p>
-                This website is my portfolio where I showcase my 
-                projects and skills in web development.
-            </p>
-            <p>
-                Thank you for visiting my website and getting to know me better. I hope you
-                enjoyed reading my blog posts and
-                found
-                them useful and informative. If you want to read more of my posts, subscribe
-                to my newsletter where I send
-                weekly
-                updates on web development trends and tips. If you have any feedback or
-                suggestions, please let me know. I'd love to hear from you.
-            </p>
-            <a href="#" class="btn">Read More</a>
-        </div>
-    </section> -->
 
     <section class="about" id="about">
     <div class="about-img">
@@ -176,37 +134,6 @@
 
     
 
-    <!-- services section design -->
-
-    <!-- <section class="services" id="services">
-        <h2 class="heading">My <span>Services</span></h2>
-
-        <div class="services-container">
-            <div class="services-box">
-                <i class='bx bx-code-alt'></i>
-                <h3>Web Development</h3>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi itaque similique, architecto
-                    eaque ut quas delectus pariatur nesciunt in eligendi mollitia dicta.</p>
-                <a href="#" class="btn">Read More</a>
-            </div>
-            <div class="services-box">
-                <i class='bx bxs-paint'></i>
-                <h3>Full-Stack Development</h3>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi itaque similique, architecto
-                    eaque ut quas delectus pariatur nesciunt in eligendi mollitia dicta.</p>
-                <a href="#" class="btn">Read More</a>
-            </div>
-            <div class="services-box">
-                <i class='bx bx-bar-chart-alt'></i>
-                <h3>MERN Stack Development</h3>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi itaque similique, architecto
-                    eaque ut quas delectus pariatur nesciunt in eligendi mollitia dicta.</p>
-                <a href="#" class="btn">Read More</a>
-            </div>
-        </div>
-    </section> -->
-
-    <!-- portfolio section design -->
     <section class="portfolio" id="portfolio">
         <h2 class="heading">Latest <span>Project</span></h2>
 
@@ -267,67 +194,151 @@
                 </div>
             </div> 
 
-            <!-- <div class="portfolio-box">
-                <img src="images/portfolio6.jpg" alt="">
+        </div>
+    </section>
 
-                <div class="portfolio-layer">
-                    <h4>it will come soon</h4>
-                    <p>User Login, Sign-up, password reset, send and verify OTP system.</p>
-                    <a href="https://lockify-client.netlify.app" target="_blank" rel="noopener noreferrer" ><i class='bx bx-link-external'></i></a>
-                </div>
-            </div>  -->
+    <section class="skills" id="skills">
+        <h2 class="heading">My <span>Skills</span></h2>
 
+        <div class="skills-grid">
+
+            <div class="skill-card">
+            <div class="skill-header">
+                <i class='bx bx-server skill-icon'></i>
+                <h3>Backend Development</h3>
+            </div>
+            <div class="skill-tags">
+                <span>Core Java</span>
+                <span>Advanced Java</span>
+                <span>OOPs Concepts</span>
+                <span>Multithreading</span>
+                <span>JDBC</span>
+                <span>Servlets</span>
+                <span>Exception Handling</span>
+                <span>SOLID Principles</span>
+            </div>
+            </div>
+
+            <div class="skill-card">
+            <div class="skill-header">
+                <i class='bx bx-layer skill-icon'></i>
+                <h3>Frameworks & Libraries</h3>
+            </div>
+            <div class="skill-tags">
+                <span>Spring Core</span>
+                <span>Spring Boot</span>
+                <span>Spring MVC</span>
+                <span>Spring Data JPA</span>
+                <span>Hibernate</span>
+                <span>React.js</span>
+            </div>
+            </div>
+
+            <div class="skill-card">
+            <div class="skill-header">
+                <i class='bx bx-code-alt skill-icon'></i>
+                <h3>Frontend Development</h3>
+            </div>
+            <div class="skill-tags">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>Tailwind CSS</span>
+                <span>JavaScript</span>
+                <span>Responsive Design</span>
+            </div>
+            </div>
+
+            <div class="skill-card">
+            <div class="skill-header">
+                <i class='bx bx-data skill-icon'></i>
+                <h3>Database Management</h3>
+            </div>
+            <div class="skill-tags">
+                <span>PostgreSQL</span>
+                <span>MySQL</span>
+                <span>MongoDB</span>
+            </div>
+            </div>
+
+            <div class="skill-card">
+            <div class="skill-header">
+                <i class='bx bx-wrench skill-icon'></i>
+                <h3>Tools & Platforms</h3>
+            </div>
+            <div class="skill-tags">
+                <span>Git & GitHub</span>
+                <span>Postman</span>
+                <span>MAVEN</span>
+                <span>Render</span>
+                <span>Netlify</span>
+                <span>Docker</span>
+                <span>Cloudinary</span>
+                <span>Brevo</span>
+            </div>
+            </div>
+
+            <div class="skill-card">
+            <div class="skill-header">
+                <i class='bx bx-brain skill-icon'></i>
+                <h3>Software Concepts</h3>
+            </div>
+            <div class="skill-tags">
+                <span>SDLC</span>
+                <span>Agile Methodology</span>
+                <span>Waterfall Methodology</span>
+                <span>Debugging</span>
+                <span>MVC Design</span>
+            </div>
+            </div>
+
+            <div class="skill-card">
+            <div class="skill-header">
+                <i class='bx bx-git-branch skill-icon'></i>
+                <h3>Architecture & Design</h3>
+            </div>
+            <div class="skill-tags">
+                <span>Microservices Architecture</span>
+                <span>MVC Design Pattern</span>
+                <span>Monolithic Architecture</span>
+                <span>RESTful API Design</span>
+            </div>
+            </div>
+
+            <div class="skill-card">
+            <div class="skill-header">
+                <i class='bx bx-transfer skill-icon'></i>
+                <h3>API & Communication</h3>
+            </div>
+            <div class="skill-tags">
+                <span>REST API</span>
+                <span>JSON</span>
+                <span>HTTP Methods</span>
+                <span>JWT</span>
+                <span>Authentication & Authorization</span>
+            </div>
+            </div>
+
+            <div class="skill-card">
+            <div class="skill-header">
+                <i class='bx bx-brain skill-icon'></i>
+                <h3>Other Skills</h3>
+            </div>
+            <div class="skill-tags">
+                <span>Problem Solving</span>
+                <span>Debugging</span>
+                <span>Clean Code Practices</span>
+                <span>Team Collaboration</span>
+            </div>
+            </div>
 
         </div>
     </section>
 
-    <!-- testimonial design -->
-    <!-- <div class="testimonial-container">
-        <h2 class="heading">Valuable <span>Testimonial</span></h2>
 
-        <div class="testimonial-wrapper">
-            <div class="testimonial-box mySwiper">
-                <div class="testimonial-content swiper-wrapper">
-                    <div class="testimonial-slide swiper-slide">
-                        <img src="images/testimonial1.jpg" alt="">
-                        <h3>Jackson Levi</h3>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exercitationem dignissimos aliquid
-                            iure delectus corrupti impedit, beatae aperiam ad iusto nostrum possimus cum pariatur harum
-                            assumenda suscipit a, qui, tempora maxime nulla facere quo ipsum tempore. Atque libero
-                            provident ad aut officia pariatur voluptate quaerat delectus nesciunt, sequi eligendi
-                            aperiam fugit unde nihil, iste similique illum. Dignissimos enim officia consequuntur
-                            dolores.</p>
-                    </div>
-                    <div class="testimonial-slide swiper-slide">
-                        <img src="images/testimonial2.jpg" alt="">
-                        <h3>Flora Ocean</h3>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exercitationem dignissimos aliquid
-                            iure delectus corrupti impedit, beatae aperiam ad iusto nostrum possimus cum pariatur harum
-                            assumenda suscipit a, qui, tempora maxime nulla facere quo ipsum tempore. Atque libero
-                            provident ad aut officia pariatur voluptate quaerat delectus nesciunt, sequi eligendi
-                            aperiam fugit unde nihil, iste similique illum. Dignissimos enim officia consequuntur
-                            dolores.</p>
-                    </div>
-                    <div class="testimonial-slide swiper-slide">
-                        <img src="images/testimonial3.jpg" alt="">
-                        <h3>Julian Grayson</h3>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exercitationem dignissimos aliquid
-                            iure delectus corrupti impedit, beatae aperiam ad iusto nostrum possimus cum pariatur harum
-                            assumenda suscipit a, qui, tempora maxime nulla facere quo ipsum tempore. Atque libero
-                            provident ad aut officia pariatur voluptate quaerat delectus nesciunt, sequi eligendi
-                            aperiam fugit unde nihil, iste similique illum. Dignissimos enim officia consequuntur
-                            dolores.</p>
-                    </div>
-                </div>
 
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-pagination"></div>
-            </div>
-        </div>
-    </div> -->
+    
 
-    <!-- contact section design -->
+
     <section class="contact" id="contact">
         <h2 class="heading">Contact <span>Me!</span></h2>
 
@@ -345,11 +356,9 @@
         </form>
     </section>
 
-    <!-- footer design -->
     <footer class="footer">
         <div class="footer-text">
-            <!-- <p>Copyright &copy; 2025 | All Rights Reserved.</p> -->
-        </div>
+            </div>
 
         <div class="footer-iconTop">
             <a href="#home"><i class='bx bx-up-arrow-alt'></i></a>
@@ -357,16 +366,12 @@
     </footer>
 
 
-    <!-- scroll reveal -->
     <script src="https://unpkg.com/scrollreveal"></script>
 
-    <!-- swiper js -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 
-    <!-- custom js -->
     <script src="js/script.js"></script>
 
-    <!-- Notification container -->
     <div id="notification-container" style="
     position: fixed;
     top: 20px;
