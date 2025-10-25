@@ -1065,6 +1065,7 @@ body.dark-mode .skill-card {
 }
 
 /* --- CONSOLIDATED CERTIFICATIONS SECTION STYLES --- */
+/* --- CONSOLIDATED CERTIFICATIONS SECTION STYLES --- */
 
 .certifications {
     min-height: auto;
@@ -1162,7 +1163,6 @@ body.dark-mode .platform-logo {
 .cert-description {
     font-size: 1.6rem; 
     color: var(--text-color);
-    /* Tighter vertical spacing */
     margin-top: 0.5rem; 
     margin-bottom: 0.5rem; 
     padding: 0 2rem; 
@@ -1180,7 +1180,6 @@ body.dark-mode .cert-description {
 /* Info Block Styling (Platform/Issuer) */
 .cert-info {
     text-align: center;
-    /* Tighter vertical spacing */
     margin-top: 0.5rem; 
     margin-bottom: 0.5rem; 
 }
@@ -1202,13 +1201,6 @@ body.dark-mode .cert-info p {
     color: var(--white-color);
 }
 
-/* --- Redundant Class Cleanup (To prevent conflicts) --- */
-.cert-platform, .cert-issuer {
-    /* These classes are now contained within .cert-info p, this prevents old styles from interfering */
-    margin: 0;
-    padding: 0;
-}
-
 /* Button Styling */
 .cert-card .small-btn {
     display: inline-block;
@@ -1223,7 +1215,7 @@ body.dark-mode .cert-info p {
     border: .2rem solid transparent;
     transition: .5s ease;
     text-decoration: none;
-    margin-top: 2rem; /* Consistent space above the button */
+    margin-top: 2rem;
 }
 
 .cert-card .small-btn:hover {
@@ -1251,6 +1243,17 @@ body.dark-mode .cert-info p {
 }
 .certifications-box .swiper-button-prev {
     left: 5px;
+}
+
+.certifications-box .swiper-pagination {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    text-align: center;
+    padding-top: 2rem;
+    z-index: 10;
 }
 
 .certifications-box .swiper-pagination-bullet {
@@ -1283,7 +1286,6 @@ body.dark-mode .cert-info p {
     
     .certifications-box .swiper-button-next,
     .certifications-box .swiper-button-prev {
-        /* Keep arrows tiny on small screens */
         width: 2rem;
         height: 2rem;
     }
@@ -1293,7 +1295,6 @@ body.dark-mode .cert-info p {
     .certifications-wrapper {
         padding: 0;
     }
-    /* Hide arrows on very small screens for better stability */
     .certifications-box .swiper-button-next,
     .certifications-box .swiper-button-prev {
         display: none;

@@ -54,15 +54,14 @@ function showNotification(message, type = "success") {
 }
 
 /* Initialize Swiper for Certifications (Standard Single Slide) */
-var certSwiper = new Swiper(".certifications-box", {
-    slidesPerView: 1, // Shows one full slide at a time
-    spaceBetween: 50, // Large space between slides
+// Initialize Swiper for Certifications with unique selector
+var certSwiper = new Swiper(".certSwiperContainer", { 
+    slidesPerView: 1, 
+    spaceBetween: 50, 
     loop: true,
     grabCursor: true,
+    autoHeight: true, // Crucial for stable height
     
-    // **THE FIX: Forces the container height to match the current slide.**
-    autoHeight: true, 
-
     pagination: {
         el: ".swiper-pagination",
         clickable: true,
