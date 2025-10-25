@@ -1063,3 +1063,239 @@ body.dark-mode .skill-card {
   color: var(--white-color);
   border-color: transparent;
 }
+
+/* --- CONSOLIDATED CERTIFICATIONS SECTION STYLES --- */
+
+.certifications {
+    min-height: auto;
+    padding-bottom: 10rem;
+}
+
+.certifications .heading {
+    margin-bottom: 5rem;
+}
+
+/* 1. Wrapper is centered and controls overall width */
+.certifications-wrapper {
+    position: relative;
+    max-width: 90rem; 
+    width: 100%;
+    padding: 0;
+    margin: 0 auto;
+}
+
+/* 2. Box is clean and contains the carousel */
+.certifications-box {
+    padding: 1rem;
+    border-radius: 2rem;
+    overflow: hidden; 
+}
+
+/* Individual Card/Slide Styling */
+.cert-card {
+    display: flex;
+    flex-direction: column; 
+    /* Key for vertical gap fix: Pushes content group to top and button to bottom */
+    justify-content: space-between; 
+    align-items: center; /* Centers content horizontally */
+    text-align: center;
+    
+    /* Stabilized height: Guarantees stable arrow positioning */
+    min-height: 42rem; 
+    
+    background: var(--bg-color);
+    border-radius: 2rem;
+    box-shadow: 0 .1rem .5rem var(--shadow-color);
+    padding: 3rem; 
+    border-top: .6rem solid var(--main-color);
+    border-bottom: .6rem solid var(--main-color);
+    transition: .5s ease;
+}
+
+body.dark-mode .cert-card {
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 0 20px rgba(117, 78, 249, 0.2);
+}
+
+/* NEW: Group to hold title, logo, description, and info blocks tightly */
+.cert-content-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%; 
+}
+
+/* Logo Styling (Authentic, no filters) */
+.platform-logo {
+    width: 10rem;
+    height: auto;
+    object-fit: contain;
+    margin-bottom: 1rem;
+    filter: none !important; 
+    opacity: 1 !important; 
+    transition: none !important; 
+}
+body.dark-mode .platform-logo {
+    filter: none !important;
+    opacity: 1 !important; 
+}
+.cert-card:hover .platform-logo {
+    filter: none !important; 
+    opacity: 1 !important; 
+}
+
+.cert-header {
+    margin-bottom: 0.5rem; 
+    padding-bottom: 1rem;
+}
+
+.cert-card h3 {
+    font-size: 2.4rem;
+    font-weight: 600;
+    color: var(--text-color);
+    line-height: 1.4; 
+    margin-bottom: 1rem;
+    padding: 0 1rem;
+}
+
+/* Description Styling (Ensures wrapping and reduces vertical gap) */
+.cert-description {
+    font-size: 1.6rem; 
+    color: var(--text-color);
+    /* Tighter vertical spacing */
+    margin-top: 0.5rem; 
+    margin-bottom: 0.5rem; 
+    padding: 0 2rem; 
+    line-height: 1.6;
+    
+    white-space: normal; 
+    overflow-wrap: break-word;
+}
+
+body.dark-mode .cert-description {
+    color: var(--white-color);
+}
+
+
+/* Info Block Styling (Platform/Issuer) */
+.cert-info {
+    text-align: center;
+    /* Tighter vertical spacing */
+    margin-top: 0.5rem; 
+    margin-bottom: 0.5rem; 
+}
+
+.cert-info p {
+    font-size: 1.5rem;
+    line-height: 1.5; 
+    color: var(--text-color);
+    margin: 0.2rem 0; 
+}
+
+.cert-info b {
+    color: var(--main-color);
+    font-weight: 600;
+    margin-right: 0.5rem;
+}
+
+body.dark-mode .cert-info p {
+    color: var(--white-color);
+}
+
+/* --- Redundant Class Cleanup (To prevent conflicts) --- */
+.cert-platform, .cert-issuer {
+    /* These classes are now contained within .cert-info p, this prevents old styles from interfering */
+    margin: 0;
+    padding: 0;
+}
+
+/* Button Styling */
+.cert-card .small-btn {
+    display: inline-block;
+    padding: 1.2rem 2.8rem;
+    background: var(--main-color);
+    border-radius: .6rem;
+    box-shadow: 0 .2rem .5rem var(--shadow-color);
+    font-size: 1.6rem;
+    color: var(--white-color);
+    letter-spacing: .1rem;
+    font-weight: 600;
+    border: .2rem solid transparent;
+    transition: .5s ease;
+    text-decoration: none;
+    margin-top: 2rem; /* Consistent space above the button */
+}
+
+.cert-card .small-btn:hover {
+    background: transparent;
+    color: var(--main-color);
+    border-color: var(--main-color);
+}
+
+
+/* --- SWIPER ARROWS AND PAGINATION (Stability Fixes) --- */
+.certifications-box .swiper-button-next,
+.certifications-box .swiper-button-prev {
+    color: var(--main-color);
+    top: 50%;
+    transform: translateY(-50%);
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1.8rem;
+    background-image: none !important;
+    z-index: 10;
+}
+
+.certifications-box .swiper-button-next {
+    right: 5px; 
+}
+.certifications-box .swiper-button-prev {
+    left: 5px;
+}
+
+.certifications-box .swiper-pagination-bullet {
+    background: rgba(0, 0, 0, .8);
+}
+.certifications-box .swiper-pagination-bullet-active {
+    background: var(--main-color);
+}
+
+/* --- MEDIA QUERIES (Mobile Responsiveness) --- */
+
+@media (max-width: 768px) {
+    .certifications-wrapper {
+        padding: 0 1rem;
+    }
+    
+    .cert-card {
+        min-height: 40rem;
+        padding: 2rem;
+    }
+
+    .cert-card h3 {
+        font-size: 2rem;
+    }
+
+    .cert-description {
+        font-size: 1.5rem;
+        padding: 0 1rem;
+    }
+    
+    .certifications-box .swiper-button-next,
+    .certifications-box .swiper-button-prev {
+        /* Keep arrows tiny on small screens */
+        width: 2rem;
+        height: 2rem;
+    }
+}
+
+@media (max-width: 450px) {
+    .certifications-wrapper {
+        padding: 0;
+    }
+    /* Hide arrows on very small screens for better stability */
+    .certifications-box .swiper-button-next,
+    .certifications-box .swiper-button-prev {
+        display: none;
+    }
+}
