@@ -443,7 +443,7 @@ span {
 
 .portfolio-layer p {
     font-size: 1.6rem;
-    margin: .3rem 0 1rem;
+    margin: 0.5rem 0 1rem;
 }
 
 .portfolio-layer a {
@@ -1299,4 +1299,328 @@ body.dark-mode .cert-info p {
     .certifications-box .swiper-button-prev {
         display: none;
     }
+}
+
+/* Education section */
+
+/* --- EDUCATION SECTION STYLES (Timeline) --- */
+
+.education {
+    min-height: auto;
+    padding-bottom: 10rem;
+}
+
+.timeline-container {
+    position: relative;
+    max-width: 90rem;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+/* Vertical Timeline Line */
+.timeline-container::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    background: var(--main-color);
+    top: 0;
+    bottom: 0;
+    left: 7%; /* Position the line slightly to the left for content alignment */
+    margin-left: -3px;
+    z-index: -1;
+}
+
+/* Individual Timeline Item */
+.timeline-item {
+    padding: 1rem 0 3rem 10%; /* Space for the dot and line */
+    position: relative;
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+/* Timeline Dot/Circle */
+.timeline-dot {
+    position: absolute;
+    width: 1.5rem;
+    height: 1.5rem;
+    left: 7%;
+    transform: translateX(-50%);
+    background: var(--bg-color);
+    border: 3px solid var(--main-color);
+    border-radius: 50%;
+    top: 1.5rem;
+    z-index: 10;
+}
+
+/* Dark Mode Dot Fix */
+body.dark-mode .timeline-dot {
+    background: var(--bg-color);
+}
+
+/* Timeline Date/Tags Block */
+.timeline-date-tag {
+    display: inline-flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.timeline-date-tag span {
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--white-color);
+    background: var(--main-color);
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    letter-spacing: 0.05rem;
+}
+
+.timeline-date-tag .year {
+    background: transparent;
+    border: 1px solid var(--main-color);
+    color: var(--main-color);
+}
+
+/* Timeline Content */
+.timeline-content {
+    background: var(--bg-color);
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 .1rem 1rem var(--shadow-color);
+    transition: all 0.3s ease;
+    border-left: 0.5rem solid var(--main-color);
+    margin-left: 1rem; /* Space from the line */
+}
+
+body.dark-mode .timeline-content {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.timeline-content:hover {
+    box-shadow: 0 .1rem 2rem rgba(117, 78, 249, 0.5);
+    transform: translateY(-3px);
+}
+
+.timeline-content h3 {
+    font-size: 2rem;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.timeline-content p {
+    font-size: 1.5rem;
+    color: var(--text-color);
+    line-height: 1.5;
+}
+
+/* --- Responsive Adjustments --- */
+
+@media (max-width: 991px) {
+    .timeline-container::after,
+    .timeline-dot {
+        left: 3%; /* Adjust line position for smaller screens */
+    }
+    .timeline-item {
+        padding-left: 6%; 
+        padding-right: 1rem;
+    }
+}
+
+@media (max-width: 580px) {
+    .timeline-container::after,
+    .timeline-dot {
+        left: 1rem; /* Fix line to the far left on mobile */
+    }
+    .timeline-item {
+        padding-left: 3rem; /* Small space from the line */
+    }
+}
+
+.project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.6rem;
+    margin: 1rem 0 1.5rem; /* Space above and below the stack */
+    max-width: 100%;
+}
+
+.project-tech span {
+    /* Styling similar to skill tags, but adapted for the dark overlay */
+    background: rgba(255, 255, 255, 0.2); /* Light background for contrast */
+    border: 1px solid rgba(255, 255, 255, 0.5); 
+    padding: 0.4rem 0.8rem;
+    border-radius: 0.5rem;
+    font-size: 1.2rem;
+    color: var(--white-color); /* White text on the dark overlay */
+    font-weight: 500;
+}
+
+/* --- PORTFOLIO SECTION (Visible Card Layout) --- */
+
+.portfolio {
+    min-height: auto;
+    padding-bottom: 10rem;
+}
+
+.portfolio h2 {
+    margin-bottom: 4rem;
+}
+
+.portfolio .portfolio-container {
+    display: grid;
+    /* Maintain 3-column grid */
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr)); 
+    align-items: stretch; /* Ensures cards are same height */
+    gap: 2.5rem;
+}
+
+.portfolio-card { /* NEW Wrapper Class for the entire project card */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    /* Apply box shadow to the entire card */
+    box-shadow: 0 0 1rem var(--shadow-color); 
+    background: var(--bg-color); 
+    transition: all 0.4s ease;
+}
+
+body.dark-mode .portfolio-card {
+    background: rgba(255, 255, 255, 0.05); /* Darker card background */
+}
+
+.portfolio-card:hover {
+    transform: translateY(-8px); /* Nice hover lift effect */
+    box-shadow: 0 0 35px rgba(117, 78, 249, 0.5);
+}
+
+
+/* --- Image & Content Styling --- */
+
+.portfolio-image { /* Wrapper for the image only */
+    overflow: hidden;
+    max-height: 25rem;
+}
+
+.portfolio-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: .5s ease;
+}
+
+/* No hover opacity change on the image, but keep the scale effect */
+.portfolio-card:hover .portfolio-image img {
+    transform: scale(1.05); 
+}
+
+.portfolio-content { /* NEW: Visible content area */
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-between; /* Pushes button link to bottom */
+}
+
+.portfolio-content h4 {
+    font-size: 2.2rem;
+    color: var(--main-color);
+    margin-bottom: 0.5rem;
+}
+
+.portfolio-content p {
+    font-size: 1.5rem;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+.project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 1rem 0 1.5rem;
+}
+
+.project-tech span {
+    background: rgba(117, 78, 249, 0.15); /* Semi-transparent main color */
+    border: 1px solid rgba(117, 78, 249, 0.4); 
+    padding: 0.3rem 0.7rem;
+    border-radius: 0.5rem;
+    font-size: 1.2rem;
+    color: var(--text-color); 
+    font-weight: 500;
+}
+
+.portfolio-content .project-link { /* Styling for the external link button */
+    align-self: flex-start; /* Aligns button to the left */
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 4rem;
+    height: 4rem;
+    background: var(--main-color);
+    border-radius: 50%;
+    margin-top: 1rem;
+    transition: all 0.3s ease;
+}
+
+.portfolio-content .project-link { 
+    width: 4.2rem;
+    height: 4.2rem;
+    background: var(--main-color);
+    border-radius: 50%;
+    /* Override flex-start alignment from portfolio-content for buttons */
+    align-self: flex-start; 
+}
+
+.portfolio-content .project-link:hover {
+    background: var(--text-color);
+}
+
+/* --- Project Link Group Styling --- */
+
+/* Wrapper to hold the tech tags and the link buttons */
+.portfolio-content > div:last-child {
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-start;
+    width: 100%;
+    margin-top: auto; /* Pushes the link group to the bottom of the card */
+}
+
+/* New container for the two buttons */
+.project-links-group {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem; /* Space above the button group */
+}
+
+/* Styling for the new descriptive link buttons (uses base .btn styles) */
+.link-btn {
+    /* Override base button centering and ensure it's slightly smaller */
+    padding: 0.8rem 1.2rem; 
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; /* Space between text and icon */
+    box-shadow: none; /* Keep buttons clean */
+}
+
+.link-btn i {
+    font-size: 1.8rem; /* Larger icon size for better visibility */
+    color: var(--white-color);
+    transition: all 0.3s ease;
+}
+
+.link-btn:hover {
+    background: transparent;
+    color: var(--main-color);
+    border-color: var(--main-color);
+}
+
+.link-btn:hover i {
+    color: var(--main-color); /* Icon changes color on hover */
 }
