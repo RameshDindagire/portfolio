@@ -1624,3 +1624,56 @@ body.dark-mode .portfolio-card {
 .link-btn:hover i {
     color: var(--main-color); /* Icon changes color on hover */
 }
+
+/* Existing Footer Styles for Context */
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 2rem 7%;
+    background: var(--main-color);
+}
+
+.footer-text p {
+    font-size: 1.6rem;
+    color: var(--white-color);
+}
+
+/* Responsive Fix from your existing media query: */
+@media (max-width: 450px) {
+    .footer {
+        flex-direction: column-reverse;
+    }
+
+    .footer p {
+        text-align: center;
+        margin-top: 2rem;
+    }
+}
+
+/* --- Quick Contact Footer Styling --- */
+.footer-text .quick-contact {
+    font-size: 1.4rem;
+    color: var(--white-color);
+    margin-top: 0.5rem; /* Small gap between copyright and contact */
+}
+
+.footer-text .quick-contact a {
+    color: var(--white-color);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 0.3s ease;
+}
+
+.footer-text .quick-contact a:hover {
+    color: var(--text-color); /* Highlight link on hover */
+}
+
+/* Ensure the text is centered on small screens */
+@media (max-width: 450px) {
+    .footer-text .quick-contact {
+        text-align: center;
+        /* The entire .footer-text p is already centered by the existing media query */
+    }
+}
