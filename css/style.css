@@ -302,7 +302,7 @@ section {
     bottom: 0;
     right: 40px;
     pointer-events: none;
-    max-width: 480px;
+    max-width: 500px;
     max-height: 100vh;
 }
 
@@ -737,6 +737,8 @@ span {
     }
 }
 
+/* Original large screen styling (Keep this) */
+/* 🛑 1ST DANGEROUS BLOCK - This must be replaced with the fixed slide-out style */
 @media (max-width: 768px) {
     #menu-icon {
         display: block;
@@ -750,11 +752,12 @@ span {
         margin-bottom: .1rem;
     }
 
+    /* NOTE: This block defines the desktop-to-mobile shift. */
     .navbar {
-        position: absolute;
+        position: absolute; /* PROBLEM HERE */
         top: 100%;
         right: 0;
-        width: 100%;
+        width: 100%; /* PROBLEM HERE */
         padding: 1rem 3%;
         background: var(--bg-color);
         border-top: .1rem solid rgba(0, 0, 0, .2);
@@ -766,6 +769,8 @@ span {
     .navbar.active {
         display: block;
     }
+    
+    /* ... other original mobile styles ... */
 
     .navbar a {
         display: block;
@@ -1691,6 +1696,7 @@ body.dark-mode .portfolio-card {
 
 /* ========== RESPONSIVE NAVBAR (MOBILE) ========== */
 
+/* 🛑 2ND DANGEROUS BLOCK - This must contain the correct slide-out and z-index */
 @media (max-width: 768px) {
 
   /* Hamburger icon */
@@ -1698,16 +1704,16 @@ body.dark-mode .portfolio-card {
     display: block;
     font-size: 3rem;
     cursor: pointer;
-    z-index: 2001;
+    z-index: 2001; /* Z-index is 2001 */
     color: var(--text-color, black);
   }
 
   /* Navbar base */
   .navbar {
-    position: fixed;
+    position: fixed; /* ✅ Corrected position for slide-out effect */
     top: 0;
     right: -100%;
-    width: 40%;
+    width: 50%; /* ✅ Corrected width for slide-out effect */
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -1721,6 +1727,7 @@ body.dark-mode .portfolio-card {
   /* Menu open state */
   .navbar.active {
     right: 0;
+    z-index: 2010; /* ✅ Corrected: Higher than overlay (1999) */
   }
 
   /* Navbar links */
@@ -1737,7 +1744,7 @@ body.dark-mode .portfolio-card {
   /* Dark mode */
   body.dark-mode .navbar {
     background: rgba(18, 18, 18, 0.9);
-    backdrop-filter: blur(10px);
+    /* backdrop-filter: blur(10px); ❌ Removed self-blur */
   }
 
   body.dark-mode .navbar a {
@@ -1747,7 +1754,7 @@ body.dark-mode .portfolio-card {
   /* ✅ Light mode (moved after dark mode for higher priority) */
   body.light-mode .navbar {
     background: rgba(255, 255, 255, 0.97);
-    backdrop-filter: blur(8px);
+    /* backdrop-filter: blur(8px); ❌ Removed self-blur */
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     border-left: 1px solid rgba(0, 0, 0, 0.05);
   }
@@ -1772,4 +1779,30 @@ body.dark-mode .portfolio-card {
     background: currentColor;
     transition: 0.3s ease;
   }
+}
+
+/* --- NEW: Mobile Menu Overlay CSS --- */
+.mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Dark transparency */
+    backdrop-filter: blur(5px);      /* Glassy blur effect */
+    z-index: 1999;                   /* Keep this at 1999 */
+    display: none;                   /* Hidden by default */
+    transition: opacity 0.4s ease;
+    opacity: 0;
+}
+
+/* State when the menu is active */
+.mobile-menu-overlay.active {
+    display: block;
+    opacity: 1;
+}
+
+/* Ensure the menu icon stays above the overlay */
+#menu-icon {
+    z-index: 2001; 
 }

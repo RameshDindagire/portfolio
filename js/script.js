@@ -75,10 +75,21 @@ var certSwiper = new Swiper(".certSwiperContainer", {
 /*========== menu icon navbar ==========*/
 let menuIcon = document.querySelector('#menu-icon');
 let navbar = document.querySelector('.navbar');
+let mobileOverlay = document.querySelector('#mobile-menu-overlay'); // NEW LINE
 
 menuIcon.onclick = () => {
     menuIcon.classList.toggle('bx-x');
     navbar.classList.toggle('active');
+    mobileOverlay.classList.toggle('active'); // NEW LINE: Toggle the overlay
+};
+
+// NEW: Close menu when clicking the mobile overlay
+mobileOverlay.onclick = () => {
+    if (navbar.classList.contains('active')) {
+        navbar.classList.remove('active');
+        menuIcon.classList.remove('bx-x');
+        mobileOverlay.classList.remove('active');
+    }
 };
 
 
