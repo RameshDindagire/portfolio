@@ -198,3 +198,16 @@ document.addEventListener("DOMContentLoaded", function () {
         document.querySelector("form").reset();
     });
 });
+
+
+// Close navbar when clicking outside (on small screens)
+document.addEventListener('click', (event) => {
+    const isClickInsideNavbar = navbar.contains(event.target);
+    const isClickOnMenuIcon = menuIcon.contains(event.target);
+
+    // Agar click navbar aur menu icon dono ke bahar hua hai
+    if (!isClickInsideNavbar && !isClickOnMenuIcon) {
+        navbar.classList.remove('active');
+        menuIcon.classList.remove('bx-x');
+    }
+});
