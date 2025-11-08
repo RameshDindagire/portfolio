@@ -50,7 +50,7 @@ body {
     background: transparent;
     display: flex;
     align-items: center;
-    z-index: 100;
+    z-index: 2020;
     transition: .5s;
 }
 
@@ -746,10 +746,13 @@ span {
         box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
         display: none;
         text-align: center;
+        z-index: 2010;
     }
 
     .navbar.active {
-        display: block;
+        /* display: block; */
+        right: 0;
+        z-index: 2010;
     }
     
     /* ... other original mobile styles ... */
@@ -1879,4 +1882,53 @@ body.dark-mode .portfolio-card {
   .cssbuttons-io-button .icon svg {
     width: 1em;
   }
+}
+
+/* --- Project Link Group Styling (Required for Live Demo/GitHub Buttons) --- */
+
+/* Wrapper to hold the tech tags and the link buttons */
+.portfolio-content > div:last-child {
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-start;
+    width: 100%;
+    margin-top: auto; /* Pushes the link group to the bottom of the card */
+}
+
+/* Container for the two buttons side-by-side */
+.project-links-group {
+    display: flex;
+    gap: 1rem; /* Space between the two link buttons */
+    margin-top: 1.5rem; /* Space above the button group */
+}
+
+/* Styling for the new descriptive link buttons (uses base .btn styles) */
+.link-btn {
+    /* Uses .btn base styles for background/border, but overrides padding/font-size */
+    padding: 0.8rem 1.2rem; 
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; /* Space between text and icon */
+    box-shadow: none; /* Keep buttons clean */
+    
+    color: var(--white-color); /* Ensures text color is white by default */
+}
+
+.link-btn:hover {
+    background: transparent;
+    color: var(--main-color);
+    border-color: var(--main-color);
+}
+
+/* Style for the icon inside the button */
+.link-btn i {
+    font-size: 1.8rem; /* Larger icon size for better visibility */
+    color: var(--white-color); /* Default icon color */
+    transition: all 0.3s ease;
+}
+
+/* Icon color change on hover */
+.link-btn:hover i {
+    color: var(--main-color); 
 }
