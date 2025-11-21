@@ -173,41 +173,77 @@ ScrollReveal().reveal('.home-content h3, .home-content p, .about-content', { ori
 
 // ===============Email sending logic==========
 
+// document.addEventListener("DOMContentLoaded", function () {
+//     document.querySelector("form").addEventListener("submit", function (e) {
+//         e.preventDefault();
+
+//         let user_name = document.querySelector("input[placeholder='Full Name']").value.trim();
+//         let user_email = document.querySelector("input[placeholder='Email Address']").value.trim();
+//         let user_mobile = document.querySelector("input[placeholder='Mobile Number']").value.trim();
+//         let email_subject = document.querySelector("input[placeholder='Email Subject']").value.trim();
+//         let message = document.querySelector("textarea").value.trim();
+
+//         if (!user_name || !user_email || !user_mobile || !email_subject || !message) {
+//             showNotification("⚠️ Please fill all fields before submitting.", "error"); // 🔴 RED
+//             return;
+//         }
+
+//         const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+//         if (!emailPattern.test(user_email)) {
+//             showNotification(" Please enter a valid email address.", "error");
+//             return;
+//         }
+
+//         emailjs.send("service_9z1hn79", "template_05dz44q", {
+//             user_name,
+//             user_email,
+//             user_mobile,
+//             email_subject,
+//             message
+//         }, "o5jFZMgba0bF6_H9O")
+//         .then(function (response) {
+//             showNotification(" Message Sent Successfully!", "success"); 
+//         }, function (error) {
+//             showNotification("❌ Failed to Send Message: " + error.text, "error"); 
+//         });
+
+//         document.querySelector("form").reset();
+//     });
+// });
+
+// =============== Web3Forms Email Sending Logic ==============
+
 document.addEventListener("DOMContentLoaded", function () {
-    document.querySelector("form").addEventListener("submit", function (e) {
+    document.getElementById("contact-form").addEventListener("submit", async function (e) {
         e.preventDefault();
 
-        let user_name = document.querySelector("input[placeholder='Full Name']").value.trim();
-        let user_email = document.querySelector("input[placeholder='Email Address']").value.trim();
-        let user_mobile = document.querySelector("input[placeholder='Mobile Number']").value.trim();
-        let email_subject = document.querySelector("input[placeholder='Email Subject']").value.trim();
-        let message = document.querySelector("textarea").value.trim();
+        let form = e.target;
 
-        if (!user_name || !user_email || !user_mobile || !email_subject || !message) {
-            showNotification("⚠️ Please fill all fields before submitting.", "error"); // 🔴 RED
+        let user_name = document.querySelector("input[name='name']").value.trim();
+        let user_email = document.querySelector("input[name='email']").value.trim();
+        let email_subject = document.querySelector("input[name='subject']").value.trim();
+        let message = document.querySelector("textarea[name='message']").value.trim();
+
+        if (!user_name || !user_email || !email_subject || !message) {
+            showNotification("⚠️ Please fill all required fields.", "error");
             return;
         }
 
-        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailPattern.test(user_email)) {
-            showNotification(" Please enter a valid email address.", "error");
-            return;
-        }
+        const formData = new FormData(form);
 
-        emailjs.send("service_9z1hn79", "template_05dz44q", {
-            user_name,
-            user_email,
-            user_mobile,
-            email_subject,
-            message
-        }, "o5jFZMgba0bF6_H9O")
-        .then(function (response) {
-            showNotification(" Message Sent Successfully!", "success"); 
-        }, function (error) {
-            showNotification("❌ Failed to Send Message: " + error.text, "error"); 
+        let response = await fetch("https://api.web3forms.com/submit", {
+            method: "POST",
+            body: formData
         });
 
-        document.querySelector("form").reset();
+        let result = await response.json();
+
+        if (result.success) {
+            showNotification("✔ Message Sent Successfully!", "success");
+            form.reset();
+        } else {
+            showNotification("❌ Failed to send message. Try again.", "error");
+        }
     });
 });
 

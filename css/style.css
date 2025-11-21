@@ -79,7 +79,7 @@ body {
   font-size: 1.7rem;
   font-weight: 500;
   margin-right: 3.5rem;
-  color: black; /* or var(--text-color) */
+  color: black;
   text-decoration: none;
   transition: color 0.3s ease;
 }
@@ -719,8 +719,7 @@ span {
     }
 }
 
-/* Original large screen styling (Keep this) */
-/* 🛑 1ST DANGEROUS BLOCK - This must be replaced with the fixed slide-out style */
+
 @media (max-width: 768px) {
     #menu-icon {
         display: block;
@@ -734,12 +733,11 @@ span {
         margin-bottom: .1rem;
     }
 
-    /* NOTE: This block defines the desktop-to-mobile shift. */
     .navbar {
-        position: absolute; /* PROBLEM HERE */
+        position: absolute;
         top: 100%;
         right: 0;
-        width: 100%; /* PROBLEM HERE */
+        width: 100%; 
         padding: 1rem 3%;
         background: var(--bg-color);
         border-top: .1rem solid rgba(0, 0, 0, .2);
@@ -750,7 +748,6 @@ span {
     }
 
     .navbar.active {
-        /* display: block; */
         right: 0;
         z-index: 2010;
     }
@@ -1587,9 +1584,9 @@ body.dark-mode .portfolio-card {
 .portfolio-content > div:last-child {
     display: flex;
     flex-direction: column; 
-    align-items: flex-start;
+    align-items: flex-start; 
     width: 100%;
-    margin-top: auto; /* Pushes the link group to the bottom of the card */
+    margin-top: auto;
 }
 
 /* New container for the two buttons */
@@ -1599,27 +1596,43 @@ body.dark-mode .portfolio-card {
     margin-top: 1.5rem; /* Space above the button group */
 }
 
-/* Styling for the new descriptive link buttons (uses base .btn styles) */
 .link-btn {
-    /* Override base button centering and ensure it's slightly smaller */
-    padding: 0.8rem 1.2rem; 
-    font-size: 1.4rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem; /* Space between text and icon */
-    box-shadow: none; /* Keep buttons clean */
+    /* *** KEY FIXES FOR HORIZONTAL LAYOUT (TEXT THEN ICON) *** */
+    display: inline-flex;       /* 1. Use flex to arrange items */
+    flex-direction: row;        /* 2. Explicitly force a horizontal layout */
+    align-items: center;        /* 3. Vertically center the text and icon */
+    justify-content: center;    /* 4. Center all content inside the button */
+    gap: 0.5rem;                /* 5. Add space between the text and icon */
+    /* ********************************************************* */
+    
+    padding: 1.2rem 2.8rem; /* Use the larger button padding */
+    font-size: 1.6rem;
+    background: var(--main-color);
+    border-radius: .6rem;
+    box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.25);
+    color: var(--white-color);
+    letter-spacing: .1rem;
+    font-weight: 600;
+    border: .2rem solid transparent;
+    transition: all 0.3s ease; 
+    width: auto;             /* Let button size fit its content */
 }
 
 .link-btn i {
-    font-size: 1.8rem; /* Larger icon size for better visibility */
+    font-size: 1.8rem; 
     color: var(--white-color);
     transition: all 0.3s ease;
+    /* Ensure no margins interfere */
+    margin: 0; 
+    padding: 0;
 }
 
 .link-btn:hover {
     background: transparent;
     color: var(--main-color);
     border-color: var(--main-color);
+    transform: scale(1.02); 
+    box-shadow: 0 0.2rem 0.5rem var(--shadow-color);
 }
 
 .link-btn:hover i {
@@ -1884,51 +1897,62 @@ body.dark-mode .portfolio-card {
   }
 }
 
-/* --- Project Link Group Styling (Required for Live Demo/GitHub Buttons) --- */
 
-/* Wrapper to hold the tech tags and the link buttons */
-.portfolio-content > div:last-child {
-    display: flex;
-    flex-direction: column; 
-    align-items: flex-start;
-    width: 100%;
-    margin-top: auto; /* Pushes the link group to the bottom of the card */
-}
-
-/* Container for the two buttons side-by-side */
-.project-links-group {
-    display: flex;
-    gap: 1rem; /* Space between the two link buttons */
-    margin-top: 1.5rem; /* Space above the button group */
-}
-
-/* Styling for the new descriptive link buttons (uses base .btn styles) */
-.link-btn {
-    /* Uses .btn base styles for background/border, but overrides padding/font-size */
-    padding: 0.8rem 1.2rem; 
-    font-size: 1.4rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem; /* Space between text and icon */
-    box-shadow: none; /* Keep buttons clean */
+.btn {
+    display: inline-block;
+    padding: 1.2rem 2.8rem;
+    background: var(--main-color);
+    border-radius: .6rem;
     
-    color: var(--white-color); /* Ensures text color is white by default */
+    /* ENHANCEMENT: Smoother, more defined shadow */
+    box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.25);
+    
+    font-size: 1.6rem;
+    color: var(--white-color);
+    letter-spacing: .1rem;
+    font-weight: 600;
+    border: .2rem solid transparent;
+    
+    /* ENHANCEMENT: Faster, more interactive transition */
+    transition: all 0.3s ease; 
 }
 
-.link-btn:hover {
+.btn:hover {
     background: transparent;
     color: var(--main-color);
     border-color: var(--main-color);
+    
+    /* ENHANCEMENT: Subtle lift on hover */
+    transform: scale(1.02); 
+    
+    /* ENHANCEMENT: Lighter shadow when transparent */
+    box-shadow: 0 0.2rem 0.5rem var(--shadow-color);
 }
 
-/* Style for the icon inside the button */
-.link-btn i {
-    font-size: 1.8rem; /* Larger icon size for better visibility */
-    color: var(--white-color); /* Default icon color */
-    transition: all 0.3s ease;
-}
+@media (max-width: 500px) {
+    /* 1. Parent: Stays in a row, centered on screen, small gap */
+    .project-links-group {
+        display: flex;
+        flex-direction: row;
+        justify-content: center; /* Centers the group itself */
+        gap: 0.8rem;
+        width: 100%; 
+    }
 
-/* Icon color change on hover */
-.link-btn:hover i {
-    color: var(--main-color); 
+    /* 2. Button: Increased width for centering, centered content */
+    .link-btn {
+        /* FIX: Use a larger width percentage to prevent text overflow */
+        /* 49% ensures two buttons + gap fit neatly in 100% of the row */
+        width: 42%; 
+        
+        flex-direction: row; 
+        font-size: 1.4rem; 
+        padding: 1rem 0.5rem; /* Reduced horizontal padding to save space */
+        
+        /* Ensures Text and Icon are centered horizontally within the 49% width */
+        justify-content: center; 
+        
+        /* Explicitly centers vertically again, just to be safe */
+        align-items: center; 
+    }
 }
