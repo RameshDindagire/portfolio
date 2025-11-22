@@ -9,6 +9,7 @@
     outline: none;
     scroll-behavior: smooth;
     font-family: 'Poppins', sans-serif;
+    cursor: url('https://cur.cursors-4u.net/others/oth-8/oth770.cur'), auto;
 }
 
 :root {
@@ -1955,4 +1956,35 @@ body.dark-mode .portfolio-card {
         /* Explicitly centers vertically again, just to be safe */
         align-items: center; 
     }
+}
+/* .cursor-glow {
+  position: fixed;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,215,0,0.35), rgba(255,215,0,0));
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+}
+
+@media (hover: none) {
+  .cursor-glow { display: none; }
+} */
+
+/* Bright Blue Star Cursor Trail */
+#cursor-trail-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 999999;
+}
+
+@media (hover: none) {
+  #cursor-trail-canvas {
+    display: none;
+  }
 }

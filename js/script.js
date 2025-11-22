@@ -259,3 +259,72 @@ document.addEventListener('click', (event) => {
         menuIcon.classList.remove('bx-x');
     }
 });
+
+/* Small + Fast-Vanish Blue Star Trail */
+(() => {
+  const canvas = document.getElementById('cursor-trail-canvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+
+  let width = window.innerWidth;
+  let height = window.innerHeight;
+  canvas.width = width;
+  canvas.height = height;
+
+  const particles = [];
+  const maxParticles = 60;
+
+  const starImg = new Image();
+  starImg.src = "https://cursor-trails.custom-cursor.com/uploads/light_symmetry_triangle_pattern_decorative_light_effect1_28fe8b0ee6.png";
+
+  function createParticle(x, y) {
+    return {
+      x,
+      y,
+      size: 10 + Math.random() * 10, // ✅ MUCH SMALLER
+      vx: (Math.random() - 0.5) * 0.6,
+      vy: (Math.random() - 0.5) * 0.6,
+      life: 12 + Math.random() * 6 // ✅ VERY SHORT LIFE (fast vanish)
+    };
+  }
+
+  document.addEventListener("mousemove", (e) => {
+    for (let i = 0; i < 2; i++) {
+      if (particles.length < maxParticles) {
+        particles.push(createParticle(e.clientX, e.clientY));
+      }
+    }
+  });
+
+  window.addEventListener("resize", () => {
+    width = window.innerWidth;
+    height = window.innerHeight;
+    canvas.width = width;
+    canvas.height = height;
+  });
+
+  function animate() {
+    ctx.clearRect(0, 0, width, height);
+
+    for (let i = particles.length - 1; i >= 0; i--) {
+      const p = particles[i];
+      p.x += p.vx;
+      p.y += p.vy;
+      p.life--;
+      p.size *= 0.92;
+
+      ctx.globalAlpha = p.life / 15; // ✅ quick fade-out
+      ctx.drawImage(starImg, p.x, p.y, p.size, p.size);
+
+      if (p.life <= 0 || p.size < 0.5) {
+        particles.splice(i, 1);
+      }
+    }
+
+    ctx.globalAlpha = 1;
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+})();
+
